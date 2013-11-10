@@ -4,8 +4,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/simple_html_dom.php';
 
 $smarty = new TSmarty();
 $smarty->force_compile = true;
+
 $prim_source = 'prim_page.html';
-// $source = 'http://primpogoda.ru/';
+$source_prim = 'http://primpogoda.ru/';
 $prim_html = file_get_html($prim_source);
 
 //валюты
@@ -35,7 +36,7 @@ foreach ($prim_html->find('div.news div.news-item') as $div) {
    if (count(explode(' ', $div->class)) > 1) continue;
    $new = Array();
    $new['href']   = $div->find('a.news-pic', 0)->href;
-   $new['img']    = $div->find('img.preview', 0)->src;
+   $new['img']    = $source_prim . $div->find('img.preview', 0)->src;
    $new['date']   = $div->find('div.time', 0)->plaintext;
    $new['header'] = $div->find('.news-header', 0)->plaintext;
    $news[] = $new;
@@ -63,5 +64,8 @@ $posters = Array();
 foreach ($vl_poster_html->find('div.common-bar') as $div) {
 
 }
-$smarty->display('html.tpl');
+
+$smarty->assign('news', $news)
+       ->assign('currencies', $currencies)
+       ->display('html.tpl');
 ?>

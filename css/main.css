@@ -1,0 +1,82 @@
+header {
+	width: 1024px;
+	margin: 0 auto;
+	background: #33bea9;
+	height: 41px;
+	margin-top: 30px;
+}
+header img.logo {
+	float: left;
+	position: relative;
+	top: -12px;
+}
+header nav ul li {
+	display: inline-block;
+}
+header nav ul li a {
+	padding: 10px 10px;
+	display: block;
+	color: white;
+	text-decoration: none;
+	font-size: 130%;
+}
+#main {
+	width: 1024px;
+	margin: 0 auto;
+	margin-top: 15px;
+}
+#news {
+	width: 55%;
+	display: inline-block;
+	/*background: #bddfe0;*/
+}
+#main > section {
+	padding: 15px;
+}
+#main > section > h1 {
+	text-align: left;
+	font-size: 180%;
+	margin-bottom: 15px;
+}
+#news article {
+	height: 60px;
+	margin-bottom: 5px;
+}
+#news article h1 a {
+	font-size: 120%;
+}
+#news article img {
+	float: left;
+	margin-right: 10px;
+}
+#news article time {
+	font-size: 105%;
+	display: block;
+	margin-bottom: 5px;
+}
+#courses {
+	display: inline-block;
+	vertical-align: top;
+	
+}
+#courses ul {
+	border-radius: 5px;
+	border: 1px #bbb solid;
+}
+#courses ul li {
+	display: inline-block;
+	width: 40px;
+	padding: 20px;
+}
+#courses span.icon {
+	font-weight: bold;
+	font-size: 130%;
+	display: block;
+	text-align: center;
+	margin-bottom: 5px;
+}
+#courses span.value {
+	font-size: 110%;
+	display: block;
+	text-align: center;
+}
