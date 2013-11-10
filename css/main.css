@@ -26,14 +26,12 @@ header nav ul li a {
 	margin-top: 15px;
 }
 #news {
-	width: 55%;
-	display: inline-block;
 	/*background: #bddfe0;*/
 }
-#main > section {
+#main section {
 	padding: 15px;
 }
-#main > section > h1 {
+#main section > h1 {
 	text-align: left;
 	font-size: 180%;
 	margin-bottom: 15px;
@@ -55,9 +53,9 @@ header nav ul li a {
 	margin-bottom: 5px;
 }
 #courses {
-	display: inline-block;
 	vertical-align: top;
-	
+	width: 390px;
+	text-align: center;
 }
 #courses ul {
 	border-radius: 5px;
@@ -79,4 +77,101 @@ header nav ul li a {
 	font-size: 110%;
 	display: block;
 	text-align: center;
+}
+#weather {
+	display: block;
+}
+#weather ul {
+	border-radius: 5px;
+	border: 1px #bbb solid;
+	text-align: center;
+}
+#weather ul li {
+	display: inline-block;
+	width: 100px;
+	padding: 20px 45px;
+}
+#weather ul li span { 
+	display: block;
+}
+#weather ul li span.deg {
+	margin-bottom: 5px;
+	font-weight: bold;
+
+	font-size: 110%;
+}
+#weather ul li img {
+	text-align: center;
+}
+#cinema_list {
+	display: inline-block;
+	vertical-align: top;
+	width: 40%;
+}
+#cinema_list li {
+	padding: 10px 40px 10px 0;
+	font-size: 130%;
+	display: block;
+	cursor: pointer;
+}
+#cinema_list li:hover, #cinema_list li.active {
+	background: #eee;
+}
+#left_top {
+	width: 50%;
+	display: inline-block;
+}
+#right_top {
+	display: inline-block;
+	vertical-align: top;
+}
+#cinema article.curfilm  {
+	width: 54%;
+	display: inline-block;
+	padding: 20px;
+	font-size: 120%;
+	background: #eee;
+	position: relative;
+}
+#cinema article.curfilm  span.genre {
+	display: block;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+#cinema article.curfilm h1 {
+	font-size: 150%;
+	margin-bottom: 20px;
+}
+#cinema article.curfilm img {
+	float: left;
+	margin-right: 10px;
+	vertical-align: top;
+	width: 120px;
+}
+#cinema article.curfilm div {
+	margin-left: 130px;
+	min-height: 180px;
+}
+#cinema article.curfilm div a {
+	display: block;
+	margin-top: 10px;
+}
+#cinema article.curfilm ul.times {
+	display: block;
+	width: 100%;
+	margin-top: 20px;
+	text-align: center;
+}
+#cinema article.curfilm ul.times li {
+	display: inline-block;
+	font-size: 90%;
+	text-align: center;
+	margin: 0 9px;
+}
+#cinema article.curfilm ul.times li span {
+	display: block;
+}
+#cinema article.curfilm ul.times li span.time {
+	font-size: 170%;
+	margin-bottom: 3px;
 }
