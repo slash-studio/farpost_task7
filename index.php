@@ -9,6 +9,16 @@ $prim_source = 'prim_page.html';
 $source_prim = 'http://primpogoda.ru/';
 $prim_html = file_get_html($prim_source);
 
+function GetImgUrlFromBackgroundStyle($style)
+{
+   // $style = "background-image: url(http://kino.vl.ru//kino/images/vlrukeykoposter1.jpg)";
+   // echo $style;
+   // echo "<br>";
+   return preg_match("/background-image: url\(([\/a-zA-Z0-9\.:_]+)\)/", $style, $res) ? $res[1] : '';
+   // $backg_len = strlen('background-image:');
+   // $start = substr($style, $backg_len);
+}
+
 //валюты
 function ParseCurrencies($name)
 {
@@ -47,9 +57,7 @@ foreach ($prim_html->find('div.news div.news-item') as $div) {
 $weather = Array();
 foreach ($prim_html->find('.short-forecast .widget-body div') as $div) {
    $day                = Array();
-   $day_style          = $div->find('.widget-weather', 0)->style;
-   $img_s              = substr($day_style, strpos($day_style, '/img/'));
-   $day['icon']        = substr($img_s, 0, strlen($img_s) - 1);
+   $day['icon']        = GetImgUrlFromBackgroundStyle($div->find('.widget-weather', 0)->style);
    $day['temperature'] = $div->find('.widget-temp', 0)->plaintext;
    $date               = $div->find('.widget-date', 0);
    $day['date']        = $date->title;
@@ -58,11 +66,15 @@ foreach ($prim_html->find('.short-forecast .widget-body div') as $div) {
 }
 
 //события города
-$vl_poster_source = 'vl_poster_page.html';
+$vl_poster_source = 'http://www.vl.ru/';
 $vl_poster_html = file_get_html($vl_poster_source);
 $posters = Array();
-foreach ($vl_poster_html->find('div.common-bar') as $div) {
-
+$cnt = 0;
+foreach ($vl_poster_html->find('div.concerts-item') as $div) {
+   $poster['href'] = $div->find('a', 0)->href;
+   $poster['title'] = $div->find('a', 0)->title;
+   $poster['icon'] = GetImgUrlFromBackgroundStyle($div->find('span', 0)->style);
+   $posters[] = $poster;
 }
 
 $smarty->assign('news', $news)
