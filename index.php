@@ -52,7 +52,9 @@ foreach ($prim_html->find('div.news div.news-item') as $div) {
 $weather = Array();
 foreach ($prim_html->find('.short-forecast .widget-body div') as $div) {
    $day                = Array();
-   $day['icon']        = GetImgUrlFromBackgroundStyle($div->find('.widget-weather', 0)->style);
+   $day['icon']        = $source_prim . GetImgUrlFromBackgroundStyle($div->find('.widget-weather', 0)->style);
+   $day_style          = $div->find('.widget-weather', 0)->style;
+   $img_s              = substr($day_style, strpos($day_style, '/img/'));
    $day['temperature'] = $div->find('.widget-temp', 0)->plaintext;
    $date               = $div->find('.widget-date', 0);
    $day['date']        = $date->title;
@@ -114,6 +116,7 @@ foreach ($vl_cinema_html->find('div.schedule-item') as $div) {
 $smarty->assign('news', $news)
        ->assign('movies', $movies)
        ->assign('currencies', $currencies)
+	   ->assign('weather', $weather)
        ->display('html.tpl');
 ?>
 
