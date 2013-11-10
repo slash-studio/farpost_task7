@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-11-10 03:48:16
+<?php /* Smarty version Smarty-3.1.13, created on 2013-11-10 03:58:30
          compiled from "Z:\home\task7.su\www\templates\html.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:16300527f0200416cd7-02472881%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:32082527f0466045555-69411614%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '6203f55417d6cbff1c8978587748657988bac4d9' => 
     array (
       0 => 'Z:\\home\\task7.su\\www\\templates\\html.tpl',
-      1 => 1384055283,
+      1 => 1384055838,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '16300527f0200416cd7-02472881',
+  'nocache_hash' => '32082527f0466045555-69411614',
   'function' => 
   array (
   ),
@@ -19,12 +19,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
     'news' => 0,
     'new' => 0,
+    'currencies' => 0,
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.13',
-  'unifunc' => 'content_527f0200474ed0_90224683',
+  'unifunc' => 'content_527f04660bd953_18895776',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_527f0200474ed0_90224683')) {function content_527f0200474ed0_90224683($_smarty_tpl) {?><!DOCTYPE HTML>
+<?php if ($_valid && !is_callable('content_527f04660bd953_18895776')) {function content_527f04660bd953_18895776($_smarty_tpl) {?><!DOCTYPE HTML>
 <html lang="ru">
 <head>
 	<title>City State - Vladivostok</title>
@@ -69,16 +70,20 @@ $_smarty_tpl->tpl_vars['new']->_loop = true;
 			<ul>
 				<li>
 					<span class="icon">$</span>
-					<span class="value">135</span>
+					<span class="value"><?php echo $_smarty_tpl->tpl_vars['currencies']->value['USD'];?>
+</span>
 				</li><li>
 					<span class="icon">€</span>
-					<span class="value">35</span>
+					<span class="value"><?php echo $_smarty_tpl->tpl_vars['currencies']->value['EUR'];?>
+</span>
 				</li><li>
 					<span class="icon">CNY</span>
-					<span class="value">135</span>
+					<span class="value"><?php echo $_smarty_tpl->tpl_vars['currencies']->value['CNY'];?>
+</span>
 				</li><li>
 					<span class="icon">¥</span>
-					<span class="value">135</span>
+					<span class="value"><?php echo $_smarty_tpl->tpl_vars['currencies']->value['JPY'];?>
+</span>
 				</li>
 			</ul>
 		</section>
