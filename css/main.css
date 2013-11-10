@@ -109,7 +109,7 @@ header nav ul li a {
 	width: 40%;
 }
 #cinema_list li {
-	padding: 10px 40px 10px 0;
+	padding: 10px 30px 10px 10px;
 	font-size: 130%;
 	display: block;
 	cursor: pointer;
@@ -127,10 +127,10 @@ header nav ul li a {
 }
 #cinema article.curfilm  {
 	width: 54%;
-	display: inline-block;
 	padding: 20px;
 	font-size: 120%;
 	background: #eee;
+	display: none;
 }
 #cinema article.curfilm  span.genre {
 	display: block;

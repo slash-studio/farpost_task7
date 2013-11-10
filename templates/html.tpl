@@ -68,59 +68,32 @@
 		<section id="cinema" class="block">
 			<h1>Кино</h1>
 			<ul id="cinema_list">
-				<li class="active" data="1">Тор 2: Царство тьмы</li>
-				<li data="2">Облачно, возможны осадки: Месть ГМО</li>
-				<li data="3">Тор 2: Царство тьмы</li>
-				<li data="4">Облачно, возможны осадки: Месть ГМО</li>
-				<li data="5">Тор 2: Царство тьмы</li>
-				<li data="6">Облачно, возможны осадки: Месть ГМО</li>
+				{foreach from=$movies item=movie name=foo}
+					<li data="{$smarty.foreach.foo.index}">{$movie.name}</li>
+				{/foreach}
 			</ul>
-			<article class="curfilm" id="film1">
-				<h1><a href="#">Тор 2: Царство тьмы</a></h1>
-				<img src="http://kino.vl.ru/kino/images/kinopoisk.ruthor_3athedarkworld2225885.jpg" />
-				<div class="right">
-					<span class="genre">Жанр: фэнтези, боевик, приключения</span>
-					<p>Реж.: Алан Тейлор. В ролях: Крис Хемсворт, Натали Портман, Том Хиддлстон, Энтони Хопкинс, Кэт Деннингс, Идрис Эльба, Крис О’Дауд, Закари Левай, Рэй Стивенсон, Адевале Акинойе-Агбаже.</p>			
-					<a href="#">Показать все сеансы</a>
-				</div>
-				<ul class="times">
-					<li><span class="time">21:00</span>
-						<a href="#" class="place">Нептун</a>
-						<span class="place_place">Зал Нептун</span>
-					</li>
-					<li><span class="time">17:00</span>
-						<a href="#" class="place">Нептун</a>
-						<span class="place_place">Зал Нептун</span>
-					</li>
-					<li><span class="time">17:00</span>
-						<a href="#" class="place">Нептун</a>
-						<span class="place_place">Зал Нептун</span>
-					</li>
-					<li><span class="time">17:00</span>
-						<a href="#" class="place">Нептун</a>
-						<span class="place_place">Зал Нептун</span>
-					</li><li><span class="time">17:00</span>
-						<a href="#" class="place">Нептун</a>
-						<span class="place_place">Зал Нептун</span>
-					</li>
-				</ul>
-			</article>
-			<article class="curfilm" id="film2">
-				<h1><a href="#">Тор 2: Царство тьмы</a></h1>
-				<img src="http://kino.vl.ru/kino/images/kinopoisk.ruthor_3athedarkworld2225885.jpg" />
-			</article>
-			<article class="curfilm" id="film3">
-				<h1><a href="#">Тор 2: Царство тьмы</a></h1>
-				<img src="http://kino.vl.ru/kino/images/kinopoisk.ruthor_3athedarkworld2225885.jpg" />
-				<div class="right">
-					<span class="genre">Жанр: фэнтези, боевик, приключения</span>
-					<p>Реж.: Алан Тейлор. В ролях: Крис Хемсворт, Натали Портман, Том Хиддлстон, Энтони Хопкинс, Кэт Деннингс, Идрис Эльба, Крис О’Дауд, Закари Левай, Рэй Стивенсон, Адевале Акинойе-Агбаже.</p>			
-					<a href="#">Показать все сеансы</a>
-				</div>
-			</article>
-			<article class="curfilm" id="film4">
-				<h1><a href="#">Тор 2: Царство тьмы</a></h1>
-			</article>
+			{foreach from=$movies item=movie name=foo1}
+				<article class="curfilm" id="film{$smarty.foreach.foo1.index}">
+					<h1><a href="{$movie.film_href}">{$movie.name}</a></h1>
+					<img src=" {$movie.icon}" />
+					<div class="right">
+						<span class="genre">Жанр: {$movie.genre}</span>
+						<p>
+							Реж.: {$movie.director}. В ролях: {$movie.actors}.
+						</p>			
+						<a href="{$movie.other_seances_href}">Показать все сеансы</a>
+					</div>
+					<ul class="times">
+						{foreach from=$movie.seances item=seance}
+							<li>
+								<span class="time">{$seance.time}</span>
+								<a href="{$seance.cinema_url}" class="place">{$seance.cinema}</a>
+								<span class="place_place">{$seance.hall}</span>
+							</li>
+					    {/foreach}
+					</ul>
+				</article>
+			{/foreach}
 		</section>
 	</div>
 </body>

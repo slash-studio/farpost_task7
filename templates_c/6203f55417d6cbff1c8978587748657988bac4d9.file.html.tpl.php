@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-11-10 06:51:39
+<?php /* Smarty version Smarty-3.1.13, created on 2013-11-10 07:15:06
          compiled from "Z:\home\task7.su\www\templates\html.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:17606527f2cfba42af4-57950281%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:11157527f327a1e3278-37490898%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '6203f55417d6cbff1c8978587748657988bac4d9' => 
     array (
       0 => 'Z:\\home\\task7.su\\www\\templates\\html.tpl',
-      1 => 1384066261,
+      1 => 1384067654,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '17606527f2cfba42af4-57950281',
+  'nocache_hash' => '11157527f327a1e3278-37490898',
   'function' => 
   array (
   ),
@@ -22,12 +22,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'currencies' => 0,
     'weather' => 0,
     'day' => 0,
+    'movies' => 0,
+    'movie' => 0,
+    'seance' => 0,
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.13',
-  'unifunc' => 'content_527f2cfbadb489_85839105',
+  'unifunc' => 'content_527f327a2f2ea6_82420775',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_527f2cfbadb489_85839105')) {function content_527f2cfbadb489_85839105($_smarty_tpl) {?><!DOCTYPE HTML>
+<?php if ($_valid && !is_callable('content_527f327a2f2ea6_82420775')) {function content_527f327a2f2ea6_82420775($_smarty_tpl) {?><!DOCTYPE HTML>
 <html lang="ru">
 <head>
 	<title>City State - Vladivostok</title>
@@ -118,59 +121,62 @@ $_smarty_tpl->tpl_vars['day']->_loop = true;
 		<section id="cinema" class="block">
 			<h1>Кино</h1>
 			<ul id="cinema_list">
-				<li class="active" data="1">Тор 2: Царство тьмы</li>
-				<li data="2">Облачно, возможны осадки: Месть ГМО</li>
-				<li data="3">Тор 2: Царство тьмы</li>
-				<li data="4">Облачно, возможны осадки: Месть ГМО</li>
-				<li data="5">Тор 2: Царство тьмы</li>
-				<li data="6">Облачно, возможны осадки: Месть ГМО</li>
+				<?php  $_smarty_tpl->tpl_vars['movie'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['movie']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['movies']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+ $_smarty_tpl->tpl_vars['smarty']->value['foreach']['foo']['index']=-1;
+foreach ($_from as $_smarty_tpl->tpl_vars['movie']->key => $_smarty_tpl->tpl_vars['movie']->value){
+$_smarty_tpl->tpl_vars['movie']->_loop = true;
+ $_smarty_tpl->tpl_vars['smarty']->value['foreach']['foo']['index']++;
+?>
+					<li data="<?php echo $_smarty_tpl->getVariable('smarty')->value['foreach']['foo']['index'];?>
+"><?php echo $_smarty_tpl->tpl_vars['movie']->value['name'];?>
+</li>
+				<?php } ?>
 			</ul>
-			<article class="curfilm" id="film1">
-				<h1><a href="#">Тор 2: Царство тьмы</a></h1>
-				<img src="http://kino.vl.ru/kino/images/kinopoisk.ruthor_3athedarkworld2225885.jpg" />
-				<div class="right">
-					<span class="genre">Жанр: фэнтези, боевик, приключения</span>
-					<p>Реж.: Алан Тейлор. В ролях: Крис Хемсворт, Натали Портман, Том Хиддлстон, Энтони Хопкинс, Кэт Деннингс, Идрис Эльба, Крис О’Дауд, Закари Левай, Рэй Стивенсон, Адевале Акинойе-Агбаже.</p>			
-					<a href="#">Показать все сеансы</a>
-				</div>
-				<ul class="times">
-					<li><span class="time">21:00</span>
-						<a href="#" class="place">Нептун</a>
-						<span class="place_place">Зал Нептун</span>
-					</li>
-					<li><span class="time">17:00</span>
-						<a href="#" class="place">Нептун</a>
-						<span class="place_place">Зал Нептун</span>
-					</li>
-					<li><span class="time">17:00</span>
-						<a href="#" class="place">Нептун</a>
-						<span class="place_place">Зал Нептун</span>
-					</li>
-					<li><span class="time">17:00</span>
-						<a href="#" class="place">Нептун</a>
-						<span class="place_place">Зал Нептун</span>
-					</li><li><span class="time">17:00</span>
-						<a href="#" class="place">Нептун</a>
-						<span class="place_place">Зал Нептун</span>
-					</li>
-				</ul>
-			</article>
-			<article class="curfilm" id="film2">
-				<h1><a href="#">Тор 2: Царство тьмы</a></h1>
-				<img src="http://kino.vl.ru/kino/images/kinopoisk.ruthor_3athedarkworld2225885.jpg" />
-			</article>
-			<article class="curfilm" id="film3">
-				<h1><a href="#">Тор 2: Царство тьмы</a></h1>
-				<img src="http://kino.vl.ru/kino/images/kinopoisk.ruthor_3athedarkworld2225885.jpg" />
-				<div class="right">
-					<span class="genre">Жанр: фэнтези, боевик, приключения</span>
-					<p>Реж.: Алан Тейлор. В ролях: Крис Хемсворт, Натали Портман, Том Хиддлстон, Энтони Хопкинс, Кэт Деннингс, Идрис Эльба, Крис О’Дауд, Закари Левай, Рэй Стивенсон, Адевале Акинойе-Агбаже.</p>			
-					<a href="#">Показать все сеансы</a>
-				</div>
-			</article>
-			<article class="curfilm" id="film4">
-				<h1><a href="#">Тор 2: Царство тьмы</a></h1>
-			</article>
+			<?php  $_smarty_tpl->tpl_vars['movie'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['movie']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['movies']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+ $_smarty_tpl->tpl_vars['smarty']->value['foreach']['foo1']['index']=-1;
+foreach ($_from as $_smarty_tpl->tpl_vars['movie']->key => $_smarty_tpl->tpl_vars['movie']->value){
+$_smarty_tpl->tpl_vars['movie']->_loop = true;
+ $_smarty_tpl->tpl_vars['smarty']->value['foreach']['foo1']['index']++;
+?>
+				<article class="curfilm" id="film<?php echo $_smarty_tpl->getVariable('smarty')->value['foreach']['foo1']['index'];?>
+">
+					<h1><a href="<?php echo $_smarty_tpl->tpl_vars['movie']->value['film_href'];?>
+"><?php echo $_smarty_tpl->tpl_vars['movie']->value['name'];?>
+</a></h1>
+					<img src=" <?php echo $_smarty_tpl->tpl_vars['movie']->value['icon'];?>
+" />
+					<div class="right">
+						<span class="genre">Жанр: <?php echo $_smarty_tpl->tpl_vars['movie']->value['genre'];?>
+</span>
+						<p>
+							Реж.: <?php echo $_smarty_tpl->tpl_vars['movie']->value['director'];?>
+. В ролях: <?php echo $_smarty_tpl->tpl_vars['movie']->value['actors'];?>
+.
+						</p>			
+						<a href="<?php echo $_smarty_tpl->tpl_vars['movie']->value['other_seances_href'];?>
+">Показать все сеансы</a>
+					</div>
+					<ul class="times">
+						<?php  $_smarty_tpl->tpl_vars['seance'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['seance']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['movie']->value['seances']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['seance']->key => $_smarty_tpl->tpl_vars['seance']->value){
+$_smarty_tpl->tpl_vars['seance']->_loop = true;
+?>
+							<li>
+								<span class="time"><?php echo $_smarty_tpl->tpl_vars['seance']->value['time'];?>
+</span>
+								<a href="<?php echo $_smarty_tpl->tpl_vars['seance']->value['cinema_url'];?>
+" class="place"><?php echo $_smarty_tpl->tpl_vars['seance']->value['cinema'];?>
+</a>
+								<span class="place_place"><?php echo $_smarty_tpl->tpl_vars['seance']->value['hall'];?>
+</span>
+							</li>
+					    <?php } ?>
+					</ul>
+				</article>
+			<?php } ?>
 		</section>
 	</div>
 </body>

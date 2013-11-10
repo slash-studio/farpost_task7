@@ -40,7 +40,7 @@ foreach ($prim_html->find('div.news div.news-item') as $div) {
    if ($cur_news_amount == $max_news_amount) break;
    if (count(explode(' ', $div->class)) > 1) continue;
    $new = Array();
-   $new['href']   = $div->find('a.news-pic', 0)->href;
+   $new['href']   = $source_prim . $div->find('a.news-pic', 0)->href;
    $new['img']    = $source_prim . $div->find('img.preview', 0)->src;
    $new['date']   = $div->find('div.time', 0)->plaintext;
    $new['header'] = $div->find('.news-header', 0)->plaintext;
@@ -82,8 +82,8 @@ $cinemas = Array();
 $max_seance_amount = 4;
 foreach ($vl_cinema_html->find('div.schedule-item') as $div) {
    $icon_block         = $div->find('.poster', 0);
-   $movie['film_href'] = $icon_block->find('a.poster', 0)->href;
-   $movie['icon']      = $icon_block->find('img', 0)->src;
+   $movie['film_href'] = $vl_cinema_source . $icon_block->find('a.poster', 0)->href;
+   $movie['icon']      = $vl_cinema_source . $icon_block->find('img', 0)->src;
    $movie_description  = $div->find('.decription', 0);
    $movie['name']      = $movie_description->find('h2 a', 0)->plaintext;
    $movie['genre']     = $movie_description->find('.staff i[itemprop="genre"]', 0)->plaintext;
@@ -92,6 +92,7 @@ foreach ($vl_cinema_html->find('div.schedule-item') as $div) {
    foreach ($movie_description->find('.staff i[itemprop="actor"]') as $i) {
       $movie['actors'][] = $i->plaintext;
    }
+   $movie['actors'] = join(',', $movie['actors']);
    $movie['seances'] = Array();
    $cur_seance_amount = 0;
    $seances           = $div->find('.seances', 0);
@@ -106,10 +107,11 @@ foreach ($vl_cinema_html->find('div.schedule-item') as $div) {
       }
       $seance['hall']   = $time->alt;
       $seance['cinema'] = $cinemas[$cinema_url];
-      $movie['seances'] = $seance;
+	  $seance['cinema_url'] = $vl_cinema_source . $cinema_url;
+      $movie['seances'][] = $seance;
       $cur_seance_amount++;
    }
-   $movie['other_seances_href'] = $div->find('.other a', 0)->href;
+   $movie['other_seances_href'] = $vl_cinema_source . $div->find('.other a', 0)->href;
    $movies[] = $movie;
 }
 
@@ -121,17 +123,4 @@ $smarty->assign('news', $news)
 ?>
 
 
-{foreach from=movies item=movie}
-   {$movie.film_href}
-   {$movie.icon}
-   {$movie.name}
-   {$movie.genre}
-   {$movie.director}
-   {foreach from=$movie.actors item=actor}
-      {$actor}
-   {/foreach}
-   {$movie.seances.time}
-   {$movie.seances.hall}
-   {$movie.seances.cinema}
-   {$movie.other_seances_href}
-{/foreach}
+
