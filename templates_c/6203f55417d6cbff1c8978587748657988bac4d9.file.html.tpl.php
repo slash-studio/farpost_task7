@@ -1,4 +1,25 @@
-<!DOCTYPE HTML>
+<?php /* Smarty version Smarty-3.1.13, created on 2013-11-10 03:16:03
+         compiled from "Z:\home\task7.su\www\templates\html.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:4240527efa736cfa04-19800123%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '6203f55417d6cbff1c8978587748657988bac4d9' => 
+    array (
+      0 => 'Z:\\home\\task7.su\\www\\templates\\html.tpl',
+      1 => 1384053102,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '4240527efa736cfa04-19800123',
+  'function' => 
+  array (
+  ),
+  'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.13',
+  'unifunc' => 'content_527efa736f4650_21175815',
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_527efa736f4650_21175815')) {function content_527efa736f4650_21175815($_smarty_tpl) {?><!DOCTYPE HTML>
 <html lang="ru">
 <head>
 	<title>City State - Vladivostok</title>
@@ -28,4 +49,4 @@
 		</section>
 	</div>
 </body>
-</html>
+</html><?php }} ?>
