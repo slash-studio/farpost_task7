@@ -11,12 +11,7 @@ $prim_html = file_get_html($prim_source);
 
 function GetImgUrlFromBackgroundStyle($style)
 {
-   // $style = "background-image: url(http://kino.vl.ru//kino/images/vlrukeykoposter1.jpg)";
-   // echo $style;
-   // echo "<br>";
    return preg_match("/background-image: url\(([\/a-zA-Z0-9\.:_]+)\)/", $style, $res) ? $res[1] : '';
-   // $backg_len = strlen('background-image:');
-   // $start = substr($style, $backg_len);
 }
 
 //валюты
@@ -66,18 +61,74 @@ foreach ($prim_html->find('.short-forecast .widget-body div') as $div) {
 }
 
 //события города
-$vl_poster_source = 'http://www.vl.ru/';
-$vl_poster_html = file_get_html($vl_poster_source);
-$posters = Array();
-$cnt = 0;
-foreach ($vl_poster_html->find('div.concerts-item') as $div) {
-   $poster['href'] = $div->find('a', 0)->href;
-   $poster['title'] = $div->find('a', 0)->title;
-   $poster['icon'] = GetImgUrlFromBackgroundStyle($div->find('span', 0)->style);
-   $posters[] = $poster;
+// $vl_poster_source = 'http://www.vl.ru/';
+// $vl_poster_html = file_get_html($vl_poster_source);
+// $posters = Array();
+// $cnt = 0;
+// foreach ($vl_poster_html->find('div.concerts-item') as $div) {
+//    $poster['href'] = $div->find('a', 0)->href;
+//    $poster['title'] = $div->find('a', 0)->title;
+//    $poster['icon'] = GetImgUrlFromBackgroundStyle($div->find('span', 0)->style);
+//    $posters[] = $poster;
+// }
+
+//кино
+$vl_cinema_source = 'http://kino.vl.ru/';
+$vl_cinema_html = file_get_html($vl_cinema_source);
+$movies  = Array();
+$cinemas = Array();
+$max_seance_amount = 4;
+foreach ($vl_cinema_html->find('div.schedule-item') as $div) {
+   $icon_block         = $div->find('.poster', 0);
+   $movie['film_href'] = $icon_block->find('a.poster', 0)->href;
+   $movie['icon']      = $icon_block->find('img', 0)->src;
+   $movie_description  = $div->find('.decription', 0);
+   $movie['name']      = $movie_description->find('h2 a', 0)->plaintext;
+   $movie['genre']     = $movie_description->find('.staff i[itemprop="genre"]', 0)->plaintext;
+   $movie['director']  = $movie_description->find('.staff i[itemprop="director"]', 0)->plaintext;
+   $movie['actors']    = Array();
+   foreach ($movie_description->find('.staff i[itemprop="actor"]') as $i) {
+      $movie['actors'][] = $i->plaintext;
+   }
+   $movie['seances'] = Array();
+   $cur_seance_amount = 0;
+   $seances           = $div->find('.seances', 0);
+   foreach ($seances->find('li .time') as $time) {
+      if ($cur_seance_amount == $max_seance_amount) break;
+      $seance['time'] = substr($time->innertext, 0, strpos($time->innertext, '<br />'));
+      $cinema         = $time->find('a', 0);
+      $cinema_url     = $cinema->href;
+      $cinema_name    = $cinema->plaintext;
+      if (empty($cinemas[$cinema_url])) {
+         $cinemas[$cinema_url] = $cinema_name;
+      }
+      $seance['hall']   = $time->alt;
+      $seance['cinema'] = $cinemas[$cinema_url];
+      $movie['seances'] = $seance;
+      $cur_seance_amount++;
+   }
+   $movie['other_seances_href'] = $div->find('.other a', 0)->href;
+   $movies[] = $movie;
 }
 
 $smarty->assign('news', $news)
+       ->assign('movies', $movies)
        ->assign('currencies', $currencies)
        ->display('html.tpl');
 ?>
+
+
+{foreach from=movies item=movie}
+   {$movie.film_href}
+   {$movie.icon}
+   {$movie.name}
+   {$movie.genre}
+   {$movie.director}
+   {foreach from=$movie.actors item=actor}
+      {$actor}
+   {/foreach}
+   {$movie.seances.time}
+   {$movie.seances.hall}
+   {$movie.seances.cinema}
+   {$movie.other_seances_href}
+{/foreach}
