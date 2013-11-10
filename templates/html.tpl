@@ -20,11 +20,31 @@
 	<div id="main">
 		<section id="news" class="block">
 			<h1>Новости</h1>
-			<article>
-				<img src="http://primpogoda.ru/images/cms/thumbs/f9f14f90776566998ce036c2686f5f43877f24b0/08-03_70_auto.jpg" />
-				<time datetime="2012-11-11">2012-11-11</time>
-				<h1><a href="#">Новость номер один супер круто</a></h1>
-			</article>
+			{foreach from=$news item=new}
+				<article>
+					<a href="{$new['href']}"><img src="{$new['img']}" /></a>
+					<time datetime="{$new['date']}">{$new['date']}</time>
+					<h1><a href="{$new['href']}">{$new['header']}</a></h1>
+				</article>
+			{/foreach}
+		</section>
+		<section id="courses" class="block">
+			<h1>Курсы валют</h1>
+			<ul>
+				<li>
+					<span class="icon">$</span>
+					<span class="value">{$currencies['USD']}</span>
+				</li><li>
+					<span class="icon">€</span>
+					<span class="value">{$currencies['EUR']}</span>
+				</li><li>
+					<span class="icon">CNY</span>
+					<span class="value">{$currencies['CNY']}</span>
+				</li><li>
+					<span class="icon">¥</span>
+					<span class="value">{$currencies['JPY']}</span>
+				</li>
+			</ul>
 		</section>
 	</div>
 </body>

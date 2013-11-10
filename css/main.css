@@ -14,11 +14,11 @@ header nav ul li {
 	display: inline-block;
 }
 header nav ul li a {
-	padding: 9px 10px;
+	padding: 10px 10px;
 	display: block;
 	color: white;
 	text-decoration: none;
-	font-size: 150%;
+	font-size: 130%;
 }
 #main {
 	width: 1024px;
@@ -27,6 +27,7 @@ header nav ul li a {
 }
 #news {
 	width: 55%;
+	display: inline-block;
 	/*background: #bddfe0;*/
 }
 #main > section {
@@ -35,10 +36,11 @@ header nav ul li a {
 #main > section > h1 {
 	text-align: left;
 	font-size: 180%;
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 }
 #news article {
-
+	height: 60px;
+	margin-bottom: 5px;
 }
 #news article h1 a {
 	font-size: 120%;
@@ -51,4 +53,30 @@ header nav ul li a {
 	font-size: 105%;
 	display: block;
 	margin-bottom: 5px;
+}
+#courses {
+	display: inline-block;
+	vertical-align: top;
+	
+}
+#courses ul {
+	border-radius: 5px;
+	border: 1px #bbb solid;
+}
+#courses ul li {
+	display: inline-block;
+	width: 40px;
+	padding: 20px;
+}
+#courses span.icon {
+	font-weight: bold;
+	font-size: 130%;
+	display: block;
+	text-align: center;
+	margin-bottom: 5px;
+}
+#courses span.value {
+	font-size: 110%;
+	display: block;
+	text-align: center;
 }
