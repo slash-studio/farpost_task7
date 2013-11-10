@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-11-10 06:40:24
+<?php /* Smarty version Smarty-3.1.13, created on 2013-11-10 06:51:39
          compiled from "Z:\home\task7.su\www\templates\html.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:27606527f2a580ff405-86308840%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:17606527f2cfba42af4-57950281%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '6203f55417d6cbff1c8978587748657988bac4d9' => 
     array (
       0 => 'Z:\\home\\task7.su\\www\\templates\\html.tpl',
-      1 => 1384065616,
+      1 => 1384066261,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '27606527f2a580ff405-86308840',
+  'nocache_hash' => '17606527f2cfba42af4-57950281',
   'function' => 
   array (
   ),
@@ -25,17 +25,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.13',
-  'unifunc' => 'content_527f2a58198253_43334132',
+  'unifunc' => 'content_527f2cfbadb489_85839105',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_527f2a58198253_43334132')) {function content_527f2a58198253_43334132($_smarty_tpl) {?><!DOCTYPE HTML>
+<?php if ($_valid && !is_callable('content_527f2cfbadb489_85839105')) {function content_527f2cfbadb489_85839105($_smarty_tpl) {?><!DOCTYPE HTML>
 <html lang="ru">
 <head>
 	<title>City State - Vladivostok</title>
 	<meta charset="utf-8"/>
 	<link href="/css/style.css" rel="stylesheet" />
 	<link href="/css/main.css" rel="stylesheet" />
-	<script src="/js/script.js"></script>
 	<script src="/js/jquery.js"></script>
+	<script src="/js/script.js"></script>
 </head>
 <body>
 	<header>
@@ -119,11 +119,11 @@ $_smarty_tpl->tpl_vars['day']->_loop = true;
 			<h1>Кино</h1>
 			<ul id="cinema_list">
 				<li class="active" data="1">Тор 2: Царство тьмы</li>
-				<li data="1">Облачно, возможны осадки: Месть ГМО</li>
-				<li data="1">Тор 2: Царство тьмы</li>
-				<li data="1">Облачно, возможны осадки: Месть ГМО</li>
-				<li data="1">Тор 2: Царство тьмы</li>
-				<li data="1">Облачно, возможны осадки: Месть ГМО</li>
+				<li data="2">Облачно, возможны осадки: Месть ГМО</li>
+				<li data="3">Тор 2: Царство тьмы</li>
+				<li data="4">Облачно, возможны осадки: Месть ГМО</li>
+				<li data="5">Тор 2: Царство тьмы</li>
+				<li data="6">Облачно, возможны осадки: Месть ГМО</li>
 			</ul>
 			<article class="curfilm" id="film1">
 				<h1><a href="#">Тор 2: Царство тьмы</a></h1>
@@ -154,6 +154,22 @@ $_smarty_tpl->tpl_vars['day']->_loop = true;
 						<span class="place_place">Зал Нептун</span>
 					</li>
 				</ul>
+			</article>
+			<article class="curfilm" id="film2">
+				<h1><a href="#">Тор 2: Царство тьмы</a></h1>
+				<img src="http://kino.vl.ru/kino/images/kinopoisk.ruthor_3athedarkworld2225885.jpg" />
+			</article>
+			<article class="curfilm" id="film3">
+				<h1><a href="#">Тор 2: Царство тьмы</a></h1>
+				<img src="http://kino.vl.ru/kino/images/kinopoisk.ruthor_3athedarkworld2225885.jpg" />
+				<div class="right">
+					<span class="genre">Жанр: фэнтези, боевик, приключения</span>
+					<p>Реж.: Алан Тейлор. В ролях: Крис Хемсворт, Натали Портман, Том Хиддлстон, Энтони Хопкинс, Кэт Деннингс, Идрис Эльба, Крис О’Дауд, Закари Левай, Рэй Стивенсон, Адевале Акинойе-Агбаже.</p>			
+					<a href="#">Показать все сеансы</a>
+				</div>
+			</article>
+			<article class="curfilm" id="film4">
+				<h1><a href="#">Тор 2: Царство тьмы</a></h1>
 			</article>
 		</section>
 	</div>

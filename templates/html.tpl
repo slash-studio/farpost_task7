@@ -5,8 +5,8 @@
 	<meta charset="utf-8"/>
 	<link href="/css/style.css" rel="stylesheet" />
 	<link href="/css/main.css" rel="stylesheet" />
-	<script src="/js/script.js"></script>
 	<script src="/js/jquery.js"></script>
+	<script src="/js/script.js"></script>
 </head>
 <body>
 	<header>
@@ -69,11 +69,11 @@
 			<h1>Кино</h1>
 			<ul id="cinema_list">
 				<li class="active" data="1">Тор 2: Царство тьмы</li>
-				<li data="1">Облачно, возможны осадки: Месть ГМО</li>
-				<li data="1">Тор 2: Царство тьмы</li>
-				<li data="1">Облачно, возможны осадки: Месть ГМО</li>
-				<li data="1">Тор 2: Царство тьмы</li>
-				<li data="1">Облачно, возможны осадки: Месть ГМО</li>
+				<li data="2">Облачно, возможны осадки: Месть ГМО</li>
+				<li data="3">Тор 2: Царство тьмы</li>
+				<li data="4">Облачно, возможны осадки: Месть ГМО</li>
+				<li data="5">Тор 2: Царство тьмы</li>
+				<li data="6">Облачно, возможны осадки: Месть ГМО</li>
 			</ul>
 			<article class="curfilm" id="film1">
 				<h1><a href="#">Тор 2: Царство тьмы</a></h1>
@@ -104,6 +104,22 @@
 						<span class="place_place">Зал Нептун</span>
 					</li>
 				</ul>
+			</article>
+			<article class="curfilm" id="film2">
+				<h1><a href="#">Тор 2: Царство тьмы</a></h1>
+				<img src="http://kino.vl.ru/kino/images/kinopoisk.ruthor_3athedarkworld2225885.jpg" />
+			</article>
+			<article class="curfilm" id="film3">
+				<h1><a href="#">Тор 2: Царство тьмы</a></h1>
+				<img src="http://kino.vl.ru/kino/images/kinopoisk.ruthor_3athedarkworld2225885.jpg" />
+				<div class="right">
+					<span class="genre">Жанр: фэнтези, боевик, приключения</span>
+					<p>Реж.: Алан Тейлор. В ролях: Крис Хемсворт, Натали Портман, Том Хиддлстон, Энтони Хопкинс, Кэт Деннингс, Идрис Эльба, Крис О’Дауд, Закари Левай, Рэй Стивенсон, Адевале Акинойе-Агбаже.</p>			
+					<a href="#">Показать все сеансы</a>
+				</div>
+			</article>
+			<article class="curfilm" id="film4">
+				<h1><a href="#">Тор 2: Царство тьмы</a></h1>
 			</article>
 		</section>
 	</div>
